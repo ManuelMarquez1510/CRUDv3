@@ -1,0 +1,43 @@
+﻿@model List<CRUDv3.Models.ViewModels.ListEmpleadosViewModel>
+
+@{
+    ViewBag.Title = "Mis datos";
+}
+
+<h2>@ViewBag.Title</h2>
+<div class="row" style="text-align:right;padding:10px">
+    <a href="~/Empleados/Nuevo" class="btn btn-primary"> Agregar Empleado</a>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Fecha de nacimiento</th>
+                <th>Sueldo</th>
+                <th>Departamento</th>
+                
+            </tr>
+            @foreach (var oElemento in Model)
+            {
+                <tr>
+                    <td>@oElemento.Id</td>
+                    <td>@oElemento.Nombres</td>
+                    <td>@oElemento.Apellidos</td>
+                    <td>@oElemento.Fecha_Nacimiento</td>
+                    <td>@oElemento.Sueldo</td>
+                    <td>@oElemento.Departamento</td>
+                    <td style="text-align:right;padding:5px">
+                        <a class="btn btn-default" href="~/Empleados/Editar/@oElemento.Id">Editar Empleado</a>
+                        <a class="btn btn-danger" href="~/Empleados/Eliminar/@oElemento.Id">Eliminar Empleado</a>                        
+                    </td>
+                                       
+                </tr>
+            }
+        </table>
+
+    </div>
+
+</div>

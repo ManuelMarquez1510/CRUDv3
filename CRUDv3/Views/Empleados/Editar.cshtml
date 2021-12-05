@@ -1,0 +1,48 @@
+﻿@model CRUDv3.Models.ViewModels.EmpleadosViewModel
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2> @ViewBag.Title </h2>
+
+@using (Html.BeginForm("Editar", "Empleados", FormMethod.Post))
+{
+
+
+    <div class="row">
+        <div class="col-md-12">
+            @Html.HiddenFor(d=>d.Id)
+            <div>
+                @Html.LabelFor(d => d.Nombres)
+                @Html.TextBoxFor(d => d.Nombres, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Nombres, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Apellidos)
+                @Html.TextBoxFor(d => d.Apellidos, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Apellidos, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Fecha_Nacimiento)<br />
+                @Html.EditorFor(d => d.Fecha_Nacimiento, "", new { @class = "form-control" })<br />
+                @Html.ValidationMessageFor(d => d.Fecha_Nacimiento, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Sueldo)
+                @Html.TextBoxFor(d => d.Sueldo, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Sueldo, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Departamento)
+                @Html.TextBoxFor(d => d.Departamento, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Departamento, "", new { @class = "text-danger" })
+            </div>
+
+            <div style="text-align:right;padding:25px">
+                <input value="Guardar" class="btn btn-primary" type="submit" />
+            </div>
+
+        </div>
+    </div>
+
+}
